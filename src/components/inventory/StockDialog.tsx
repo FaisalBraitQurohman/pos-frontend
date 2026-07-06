@@ -21,6 +21,7 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { ArrowDown, ArrowUp, Loader2 } from "lucide-react"
+import { getApiUrl } from "@/lib/api"
 
 interface Product {
     id: string
@@ -46,7 +47,7 @@ export function StockDialog({ type, onStockUpdated }: StockDialogProps) {
 
     useEffect(() => {
         if (open) {
-            fetch("/api/products?limit=100")
+            fetch(`${getApiUrl()}/api/products?limit=100`)
                 .then(res => res.json())
                 .then(data => setProducts(data.data || []))
                 .catch(err => console.error(err))
@@ -58,7 +59,7 @@ export function StockDialog({ type, onStockUpdated }: StockDialogProps) {
         setLoading(true)
 
         try {
-            const res = await fetch(`/api/stock?action=${type}`, {
+            const res = await fetch(`${getApiUrl()}/api/stock?action=${type}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

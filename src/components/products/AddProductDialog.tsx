@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Plus, Loader2 } from "lucide-react"
+import { getApiUrl } from "@/lib/api"
 
 interface AddProductDialogProps {
     onProductAdded: () => void
@@ -61,7 +62,7 @@ export function AddProductDialog({ onProductAdded, prefillData }: AddProductDial
             if (imageFile) {
                 const uploadData = new FormData()
                 uploadData.append("file", imageFile)
-                const uploadRes = await fetch("/api/upload", {
+                const uploadRes = await fetch(`${getApiUrl()}/api/upload`, {
                     method: "POST",
                     body: uploadData,
                 })
@@ -75,7 +76,7 @@ export function AddProductDialog({ onProductAdded, prefillData }: AddProductDial
                 uploadedImageUrl = data.url
             }
 
-            const res = await fetch("/api/products", {
+            const res = await fetch(`${getApiUrl()}/api/products`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

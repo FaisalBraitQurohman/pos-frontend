@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { ArrowUpRight, Loader2, ShoppingBag, AlertTriangle, TrendingUp } from "lucide-react"
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts"
+import { getApiUrl } from "@/lib/api"
 
 interface TransactionItem {
     id: string
@@ -53,7 +54,7 @@ export default function DashboardPage() {
     useEffect(() => {
         async function fetchStats() {
             try {
-                const res = await fetch("/api/stats")
+                const res = await fetch(`${getApiUrl()}/api/stats`)
                 const data = await res.json()
                 setStats(data)
             } catch (error) {

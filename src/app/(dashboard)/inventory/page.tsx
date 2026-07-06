@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { Loader2, Package, AlertTriangle } from "lucide-react"
 import { StockDialog } from "@/components/inventory/StockDialog"
+import { getApiUrl } from "@/lib/api"
 
 interface Product {
     id: string
@@ -31,7 +32,7 @@ export default function InventoryPage() {
         async function fetchProducts() {
             setLoading(true)
             try {
-                const res = await fetch("/api/products?limit=10000")
+                const res = await fetch(`${getApiUrl()}/api/products?limit=10000`)
                 const data = await res.json()
                 const sorted = (data.data || []).sort((a: Product, b: Product) =>
                     a.name.localeCompare(b.name, "id")

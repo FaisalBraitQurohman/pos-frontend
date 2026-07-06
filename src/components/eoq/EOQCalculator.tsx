@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Calculator, Info, ChevronDown } from "lucide-react"
+import { getApiUrl } from "@/lib/api"
 
 const SETUP_COST = 15000 // Biaya pemesanan tetap Rp 15.000
 const HOLDING_PERCENTAGE = 0.1 // 10% dari harga beli
@@ -30,7 +31,7 @@ export function EOQCalculator() {
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const res = await fetch("/api/products?limit=100")
+                const res = await fetch(`${getApiUrl()}/api/products?limit=100`)
                 const data = await res.json()
                 setProducts(data.data || [])
             } catch (error) {

@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { Loader2 } from "lucide-react"
+import { getApiUrl } from "@/lib/api"
 
 interface StockHistory {
     id: string
@@ -29,7 +30,7 @@ export function StockHistoryTable() {
     useEffect(() => {
         async function fetchHistory() {
             try {
-                const res = await fetch("/api/stock?limit=10000")
+                const res = await fetch(`${getApiUrl()}/api/stock?limit=10000`)
                 const data = await res.json()
                 setHistory(data || [])
             } catch (error) {

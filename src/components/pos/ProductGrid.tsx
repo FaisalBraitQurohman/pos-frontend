@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Plus, Loader2, Package, ChevronDown, Search, X } from "lucide-react"
+import { getApiUrl, resolveImageUrl } from "@/lib/api"
 
 interface Product {
     id: string
@@ -31,7 +32,7 @@ export function ProductGrid({ onAddToCart, searchTerm = "" }: ProductGridProps) 
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const res = await fetch("/api/products?limit=1000")
+                const res = await fetch(`${getApiUrl()}/api/products?limit=1000`)
                 const data = await res.json()
                 const sorted = (data.data || []).sort((a: Product, b: Product) =>
                     a.name.localeCompare(b.name, "id")
@@ -239,7 +240,7 @@ export function ProductGrid({ onAddToCart, searchTerm = "" }: ProductGridProps) 
                                             {product.imageUrl ? (
                                                 <div className="h-9 w-9 rounded-lg overflow-hidden shrink-0"
                                                     style={{ backgroundColor: "hsl(36 30% 92%)" }}>
-                                                    <img src={product.imageUrl} alt={product.name} className="h-full w-full object-cover" />
+                                                    <img src={resolveImageUrl(product.imageUrl)} alt={product.name} className="h-full w-full object-cover" />
                                                 </div>
                                             ) : (
                                                 <div className="h-9 w-9 rounded-lg flex items-center justify-center shrink-0"

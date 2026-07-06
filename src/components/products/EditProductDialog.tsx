@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Edit, Loader2 } from "lucide-react"
+import { getApiUrl } from "@/lib/api"
 
 interface EditProductDialogProps {
     product: any
@@ -70,7 +71,7 @@ export function EditProductDialog({ product, onProductUpdated }: EditProductDial
             if (imageFile) {
                 const uploadData = new FormData()
                 uploadData.append("file", imageFile)
-                const uploadRes = await fetch("/api/upload", {
+                const uploadRes = await fetch(`${getApiUrl()}/api/upload`, {
                     method: "POST",
                     body: uploadData,
                 })
@@ -84,7 +85,7 @@ export function EditProductDialog({ product, onProductUpdated }: EditProductDial
                 uploadedImageUrl = data.url
             }
 
-            const res = await fetch(`/api/products/${product.id}`, {
+            const res = await fetch(`${getApiUrl()}/api/products/${product.id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Trash2, Loader2, Package } from "lucide-react"
 import { EditProductDialog } from "./EditProductDialog"
 import { AddProductDialog } from "./AddProductDialog"
+import { getApiUrl, resolveImageUrl } from "@/lib/api"
 
 interface Product {
     id: string
@@ -27,7 +28,7 @@ export function ProductTable() {
     const fetchProducts = async () => {
         setLoading(true)
         try {
-            const res = await fetch("/api/products?limit=10000")
+            const res = await fetch(`${getApiUrl()}/api/products?limit=10000`)
             const data = await res.json()
             setProducts(data.data || [])
         } catch (error) {
@@ -45,7 +46,7 @@ export function ProductTable() {
         if (!confirm("Are you sure you want to delete this product?")) return
 
         try {
-            const res = await fetch(`/api/products/${id}`, { method: "DELETE" })
+            const res = await fetch(`${getApiUrl()}/api/products/${id}`, { method: "DELETE" })
             if (res.ok) {
                 setProducts(products.filter(p => p.id !== id))
             } else {
@@ -115,7 +116,7 @@ export function ProductTable() {
                                     {product.imageUrl ? (
                                         <div className="h-10 w-10 rounded-lg overflow-hidden shrink-0"
                                             style={{ backgroundColor: "hsl(36 30% 92%)" }}>
-                                            <img src={product.imageUrl} alt={product.name} className="h-full w-full object-cover" />
+                                            <img src={resolveImageUrl(product.imageUrl)} alt={product.name} className="h-full w-full object-cover" />
                                         </div>
                                     ) : (
                                         <div className="h-10 w-10 rounded-lg flex items-center justify-center shrink-0"

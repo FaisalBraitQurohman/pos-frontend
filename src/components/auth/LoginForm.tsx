@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Loader2, Mail, Eye, EyeOff } from "lucide-react"
+import { getApiUrl } from "@/lib/api"
 
 export function LoginForm() {
     const router = useRouter()
@@ -20,18 +21,31 @@ export function LoginForm() {
         setLoading(true)
         setError("")
 
-        await new Promise(resolve => setTimeout(resolve, 500))
+        try {
+            const res = await fetch(`${getApiUrl()}/api/auth/login`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password,
+                }),
+            })
+            const data = await res.json()
 
-        if (formData.email === "admin@pos.com" && formData.password === "admin123") {
-            localStorage.setItem("pos-logged-in", "true")
-            localStorage.setItem("pos-user", JSON.stringify({
-                email: formData.email,
-                name: "Administrator",
-                role: "ADMIN"
-            }))
-            router.push("/")
-        } else {
-            setError("Email atau password salah.")
+            if (res.ok) {
+                localStorage.setItem("pos-logged-in", "true")
+                localStorage.setItem("pos-user", JSON.stringify({
+                    email: data.email,
+                    name: data.name,
+                    role: data.role
+                }))
+                router.push("/")
+            } else {
+                setError(data.error || "Email atau password salah.")
+            }
+        } catch (error) {
+            setError("Gagal terhubung ke server.")
+        } finally {
             setLoading(false)
         }
     }

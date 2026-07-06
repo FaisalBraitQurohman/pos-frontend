@@ -6,6 +6,7 @@ import { Cart } from "./Cart"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { getApiUrl } from "@/lib/api"
 
 interface CartItem {
     id: string
@@ -95,7 +96,7 @@ export default function POSInterface() {
         setIsProcessing(true)
 
         try {
-            const response = await fetch("/api/pos", {
+            const response = await fetch(`${getApiUrl()}/api/pos`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

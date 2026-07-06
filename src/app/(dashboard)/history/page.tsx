@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { DollarSign, Calendar, ShoppingBag, Receipt, ArrowRight } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { getApiUrl } from "@/lib/api"
 
 interface TransactionItem {
     id: string
@@ -41,7 +42,7 @@ export default function HistoryPage() {
         const fetchHistory = async () => {
             setLoading(true)
             try {
-                const res = await fetch(`/api/history?date=${selectedDate}`)
+                const res = await fetch(`${getApiUrl()}/api/history?date=${selectedDate}`)
                 const result = await res.json()
                 setData(result)
             } catch (error) {
