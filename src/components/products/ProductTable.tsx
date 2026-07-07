@@ -79,25 +79,25 @@ export function ProductTable() {
         <div className="h-full flex flex-col rounded-2xl border overflow-hidden"
             style={{ backgroundColor: "hsla(36, 33%, 97%, 0.75)", borderColor: "hsl(36 20% 88%)", boxShadow: "0 2px 12px rgba(120,80,40,0.06)" }}>
             <div className="flex-1 min-h-0 overflow-y-auto overflow-x-auto custom-scrollbar">
-                <table className="w-full min-w-[800px] text-left">
+                <table className="w-full min-w-0 table-fixed text-left">
                     <thead className="sticky top-0 z-10"
                         style={{ backgroundColor: "hsl(36 33% 96%)", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
                         <tr>
-                            <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-wider w-16"
+                            <th className="pl-3 pr-1 sm:px-4 py-3 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider w-12 sm:w-16"
                                 style={{ color: "hsl(24 10% 50%)" }}>Gambar</th>
-                            <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-wider"
+                            <th className="hidden lg:table-cell px-4 py-3 text-[11px] font-semibold uppercase tracking-wider w-24"
                                 style={{ color: "hsl(24 10% 50%)" }}>SKU</th>
-                            <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-wider"
+                            <th className="px-2 sm:px-4 py-3 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider"
                                 style={{ color: "hsl(24 10% 50%)" }}>Produk</th>
-                            <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-wider"
+                            <th className="hidden md:table-cell px-4 py-3 text-[11px] font-semibold uppercase tracking-wider w-24 lg:w-32"
                                 style={{ color: "hsl(24 10% 50%)" }}>Kategori</th>
-                            <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-wider"
-                                style={{ color: "hsl(24 10% 50%)" }}>Harga Jual</th>
-                            <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-wider text-center"
+                            <th className="px-1 sm:px-4 py-3 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider w-[65px] sm:w-24 lg:w-28"
+                                style={{ color: "hsl(24 10% 50%)" }}>Harga</th>
+                            <th className="px-1 sm:px-4 py-3 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-center w-[35px] sm:w-16 lg:w-20"
                                 style={{ color: "hsl(24 10% 50%)" }}>Stok</th>
-                            <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-wider text-center"
+                            <th className="hidden sm:table-cell px-4 py-3 text-[11px] font-semibold uppercase tracking-wider text-center w-20 lg:w-24"
                                 style={{ color: "hsl(24 10% 50%)" }}>Status</th>
-                            <th className="px-4 py-3 text-[11px] font-semibold uppercase tracking-wider text-right"
+                            <th className="pr-3 pl-1 sm:px-4 py-3 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-right w-[85px] sm:w-32"
                                 style={{ color: "hsl(24 10% 50%)" }}>Aksi</th>
                         </tr>
                     </thead>
@@ -112,40 +112,42 @@ export function ProductTable() {
                                     (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"
                                 }}
                             >
-                                <td className="px-4 py-2.5">
+                                <td className="pl-3 pr-1 sm:px-4 py-2.5">
                                     {product.imageUrl ? (
-                                        <div className="h-10 w-10 rounded-lg overflow-hidden shrink-0"
+                                        <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg overflow-hidden shrink-0"
                                             style={{ backgroundColor: "hsl(36 30% 92%)" }}>
                                             <img src={resolveImageUrl(product.imageUrl)} alt={product.name} className="h-full w-full object-cover" />
                                         </div>
                                     ) : (
-                                        <div className="h-10 w-10 rounded-lg flex items-center justify-center shrink-0"
+                                        <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg flex items-center justify-center shrink-0"
                                             style={{ backgroundColor: "hsl(36 30% 92%)" }}>
                                             <Package className="h-4 w-4" style={{ color: "hsl(36 20% 68%)" }} />
                                         </div>
                                     )}
                                 </td>
-                                <td className="px-4 py-2.5 text-xs font-medium" style={{ color: "hsl(24 15% 45%)" }}>
+                                <td className="hidden lg:table-cell px-4 py-2.5 text-xs font-medium truncate" style={{ color: "hsl(24 15% 45%)" }}>
                                     {product.sku}
                                 </td>
-                                <td className="px-4 py-2.5">
-                                    <p className="text-sm font-bold" style={{ color: "hsl(24 15% 20%)" }}>
-                                        {product.brand || product.name}
-                                    </p>
-                                    {product.size && (
-                                        <p className="text-xs" style={{ color: "hsl(24 10% 50%)" }}>{product.size}</p>
-                                    )}
+                                <td className="px-2 sm:px-4 py-2.5 overflow-hidden">
+                                    <div className="min-w-0">
+                                        <p className="text-[13px] sm:text-sm font-bold truncate" style={{ color: "hsl(24 15% 20%)" }}>
+                                            {product.brand || product.name}
+                                        </p>
+                                        {product.size && (
+                                            <p className="text-[10px] sm:text-xs truncate" style={{ color: "hsl(24 10% 50%)" }}>{product.size}</p>
+                                        )}
+                                    </div>
                                 </td>
-                                <td className="px-4 py-2.5 text-xs" style={{ color: "hsl(24 10% 50%)" }}>
+                                <td className="hidden md:table-cell px-4 py-2.5 text-xs truncate" style={{ color: "hsl(24 10% 50%)" }}>
                                     {product.category || "-"}
                                 </td>
-                                <td className="px-4 py-2.5 text-sm font-bold" style={{ color: "hsl(24 15% 25%)" }}>
+                                <td className="px-1 sm:px-4 py-2.5 text-[11px] sm:text-sm font-bold" style={{ color: "hsl(24 15% 25%)" }}>
                                     Rp {Number(product.price).toLocaleString("id-ID")}
                                 </td>
-                                <td className="px-4 py-2.5 text-center text-sm font-semibold" style={{ color: "hsl(24 15% 25%)" }}>
+                                <td className="px-1 sm:px-4 py-2.5 text-center text-[11px] sm:text-sm font-semibold" style={{ color: "hsl(24 15% 25%)" }}>
                                     {product.stock}
                                 </td>
-                                <td className="px-4 py-2.5 text-center">
+                                <td className="hidden sm:table-cell px-4 py-2.5 text-center">
                                     <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{
                                         backgroundColor: product.stock <= product.minStock
                                             ? "hsl(0 60% 95%)"
@@ -157,30 +159,33 @@ export function ProductTable() {
                                         {product.stock <= product.minStock ? "Low Stock" : "Aman"}
                                     </span>
                                 </td>
-                                <td className="px-4 py-2.5">
+                                <td className="pr-3 pl-1 sm:px-4 py-2.5">
                                     <div className="flex items-center justify-end gap-1">
-                                        <AddProductDialog
-                                            onProductAdded={fetchProducts}
-                                            prefillData={{
-                                                name: product.name,
-                                                brand: product.brand || "",
-                                                category: product.category || "",
-                                                costPrice: String(Number(product.costPrice)),
-                                                price: String(Number(product.price)),
-                                                minStock: String(product.minStock),
-                                                imageUrl: product.imageUrl || "",
-                                                description: product.description || "",
-                                            }}
-                                        />
+                                        {/* Hide the duplicate/add based on product button on very small screens to save space, show on sm+ */}
+                                        <div className="hidden sm:block">
+                                            <AddProductDialog
+                                                onProductAdded={fetchProducts}
+                                                prefillData={{
+                                                    name: product.name,
+                                                    brand: product.brand || "",
+                                                    category: product.category || "",
+                                                    costPrice: String(Number(product.costPrice)),
+                                                    price: String(Number(product.price)),
+                                                    minStock: String(product.minStock),
+                                                    imageUrl: product.imageUrl || "",
+                                                    description: product.description || "",
+                                                }}
+                                            />
+                                        </div>
                                         <EditProductDialog product={product} onProductUpdated={fetchProducts} />
                                         <button
-                                            className="h-8 w-8 rounded-lg flex items-center justify-center transition-all opacity-70 hover:opacity-100"
+                                            className="h-7 w-7 sm:h-8 sm:w-8 rounded-lg flex items-center justify-center transition-all opacity-70 hover:opacity-100"
                                             style={{ color: "hsl(0 65% 50%)" }}
                                             onMouseEnter={e => (e.currentTarget as HTMLElement).style.backgroundColor = "hsl(0 60% 95%)"}
                                             onMouseLeave={e => (e.currentTarget as HTMLElement).style.backgroundColor = ""}
                                             onClick={() => handleDelete(product.id)}
                                         >
-                                            <Trash2 className="h-4 w-4" />
+                                            <Trash2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                                         </button>
                                     </div>
                                 </td>
