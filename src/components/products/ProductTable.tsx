@@ -84,7 +84,7 @@ export function ProductTable() {
                         style={{ backgroundColor: "hsl(36 33% 96%)", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
                         <tr>
                             <th className="pl-3 pr-1 sm:px-4 py-3 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider w-12 sm:w-16"
-                                style={{ color: "hsl(24 10% 50%)" }}>Gambar</th>
+                                style={{ color: "hsl(24 10% 50%)" }}><span className="hidden sm:inline">Gambar</span></th>
                             <th className="hidden lg:table-cell px-4 py-3 text-[11px] font-semibold uppercase tracking-wider w-24"
                                 style={{ color: "hsl(24 10% 50%)" }}>SKU</th>
                             <th className="px-2 sm:px-4 py-3 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider"
