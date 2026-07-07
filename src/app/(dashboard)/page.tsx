@@ -161,9 +161,9 @@ export default function DashboardPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-5 gap-3 flex-1 min-h-0">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-3 flex-1 min-h-0">
                         {/* Transaksi Terakhir — dark card (2/5) */}
-                        <div className="col-span-2 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden group"
+                        <div className="md:col-span-2 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden group"
                             style={{ backgroundColor: "hsl(20 18% 15%)", boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}>
                             <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
                             <div>
@@ -198,7 +198,7 @@ export default function DashboardPage() {
                         </div>
 
                         {/* Timeline Transaksi (3/5) */}
-                        <div className="col-span-3 flex flex-col gap-2 min-h-0 overflow-hidden">
+                        <div className="md:col-span-3 flex flex-col gap-2 min-h-0 overflow-hidden mt-2 md:mt-0">
                             <div className="flex items-center gap-1.5 shrink-0">
                                 <TrendingUp className="h-3.5 w-3.5" style={{ color: "hsl(22 80% 42%)" }} />
                                 <span className="text-xs font-semibold" style={{ color: "hsl(24 15% 35%)" }}>Timeline transaksi</span>

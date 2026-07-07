@@ -13,7 +13,7 @@ export default function ProductsPage() {
 
     return (
         <div className="flex flex-col h-full p-6 lg:p-8 gap-4">
-            <div className="flex items-center justify-between shrink-0">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between shrink-0 gap-3">
                 <div>
                     <h1 className="text-2xl font-bold" style={{ color: "hsl(24 15% 18%)" }}>
                         Inventaris

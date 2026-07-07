@@ -170,7 +170,7 @@ export default function POSInterface() {
             </div>
 
             {/* Right: Cart */}
-            <div className="w-full xl:w-[380px] shrink-0 h-fit xl:h-full">
+            <div className="w-full xl:w-[380px] shrink-0 h-[45vh] min-h-[350px] xl:h-full">
                 <Cart
                     items={cart}
                     onUpdateQuantity={updateQuantity}
