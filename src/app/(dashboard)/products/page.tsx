@@ -12,7 +12,7 @@ export default function ProductsPage() {
     }
 
     return (
-        <div className="flex flex-col h-full py-4 sm:py-6 lg:py-8 gap-4">
+        <div className="flex flex-col h-full pt-4 sm:pt-6 lg:pt-8 gap-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between shrink-0 gap-3 px-4 sm:px-6 lg:px-8">
                 <div>
                     <h1 className="text-2xl font-bold" style={{ color: "hsl(24 15% 18%)" }}>
