@@ -203,7 +203,7 @@ export default function DashboardPage() {
                                 <TrendingUp className="h-3.5 w-3.5" style={{ color: "hsl(22 80% 42%)" }} />
                                 <span className="text-xs font-semibold" style={{ color: "hsl(24 15% 35%)" }}>Timeline transaksi</span>
                             </div>
-                            <div className="flex-1 overflow-y-auto space-y-2 pr-1 min-h-0 max-h-[200px] custom-scrollbar">
+                            <div className="flex-1 overflow-y-auto space-y-2 pr-1 min-h-0 max-h-[200px] md:max-h-none custom-scrollbar">
                                 {stats?.recentActivity && stats.recentActivity.length > 0 ? (
                                     stats.recentActivity.map(tx => (
                                         <div key={tx.id}
@@ -260,7 +260,7 @@ export default function DashboardPage() {
                                 Semua stok aman. Belum ada produk yang menyentuh batas minimum.
                             </div>
                         ) : (
-                            <div className="space-y-1.5 overflow-y-auto pr-0.5 flex-1 min-h-0 max-h-[200px] custom-scrollbar">
+                            <div className="space-y-1.5 overflow-y-auto pr-0.5 flex-1 min-h-0 max-h-[200px] xl:max-h-none custom-scrollbar">
                                 {stats!.lowStockProducts.map(p => (
                                     <div key={p.id} className="flex items-center gap-3 px-3 py-2 rounded-xl"
                                         style={{ backgroundColor: "hsl(36 33% 96%)", border: "1px solid hsl(36 20% 90%)" }}>
