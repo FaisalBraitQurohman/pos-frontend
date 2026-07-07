@@ -93,7 +93,7 @@ export function ProductGrid({ onAddToCart, searchTerm = "" }: ProductGridProps) 
         : categoryFiltered
 
     return (
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full min-h-0">
             {/* Category Dropdown */}
             <div className="flex items-center gap-3 shrink-0 px-1" ref={dropdownRef}>
                 <div className="relative">
@@ -191,7 +191,7 @@ export function ProductGrid({ onAddToCart, searchTerm = "" }: ProductGridProps) 
             </div>
 
             {/* Product Table */}
-            <div className="flex-1 overflow-y-auto mt-3 rounded-2xl border custom-scrollbar backdrop-blur-2xl shadow-xl"
+            <div className="flex-1 overflow-y-auto min-h-0 mt-3 rounded-2xl border custom-scrollbar backdrop-blur-2xl shadow-xl"
                 style={{ backgroundColor: "hsla(36, 33%, 97%, 0.75)", borderColor: "rgba(255,255,255,0.5)" }}>
                 <table className="w-full">
                     <thead className="sticky top-0 z-10"

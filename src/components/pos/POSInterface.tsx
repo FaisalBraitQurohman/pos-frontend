@@ -141,7 +141,7 @@ export default function POSInterface() {
     return (
         <div className="flex flex-col xl:flex-row h-full gap-4 p-3 sm:p-5">
             {/* Left: Product Area */}
-            <div className="flex-1 flex flex-col gap-3 min-w-0">
+            <div className="flex-1 flex flex-col gap-3 min-w-0 min-h-0">
                 {/* Search Bar */}
                 <div className="relative shrink-0">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4"

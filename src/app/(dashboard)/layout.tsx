@@ -22,7 +22,7 @@ export default function DashboardLayout({
                     boxShadow: "0 2px 20px rgba(120,80,40,0.05)",
                 }}
             >
-                <main className="flex-1 overflow-y-auto overflow-x-hidden">
+                <main className="flex-1 overflow-y-auto overflow-x-hidden flex flex-col">
                     {children}
                 </main>
             </div>
