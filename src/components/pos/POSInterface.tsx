@@ -164,13 +164,13 @@ export default function POSInterface() {
                 </div>
 
                 {/* Product Grid */}
-                <div className="flex-1 overflow-hidden min-h-[400px]">
+                <div className="flex-1 overflow-hidden min-h-0 xl:min-h-[400px]">
                     <ProductGrid onAddToCart={addToCart} searchTerm={searchTerm} />
                 </div>
             </div>
 
             {/* Right: Cart */}
-            <div className="w-full xl:w-[380px] shrink-0 h-[45vh] min-h-[350px] xl:h-full">
+            <div className="w-full xl:w-[380px] shrink-0 h-[45vh] min-h-0 xl:h-full">
                 <Cart
                     items={cart}
                     onUpdateQuantity={updateQuantity}

@@ -78,7 +78,7 @@ export default function DashboardPage() {
     const latestTx = stats?.recentActivity?.[0] ?? null
 
     return (
-        <div className="flex flex-col h-full p-5 gap-4">
+        <div className="flex flex-col md:h-full p-5 gap-4">
 
             {/* ── 4 Stat Cards ── */}
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 shrink-0">
@@ -149,10 +149,10 @@ export default function DashboardPage() {
             </div>
 
             {/* ── Bottom Row — fills remaining space ── */}
-            <div className="grid grid-cols-1 xl:grid-cols-5 gap-3 flex-1 min-h-0">
+            <div className="grid grid-cols-1 xl:grid-cols-5 gap-3 flex-1 md:min-h-0">
 
                 {/* ── Aktivitas Terbaru (3/5) ── */}
-                <div className="xl:col-span-3 bg-white/80 backdrop-blur-xl rounded-2xl border p-4 flex flex-col gap-3 shadow-[0_8px_30px_rgba(120,80,40,0.04)] min-h-0"
+                <div className="xl:col-span-3 bg-white/80 backdrop-blur-xl rounded-2xl border p-4 flex flex-col gap-3 shadow-[0_8px_30px_rgba(120,80,40,0.04)] md:min-h-0"
                     style={{ borderColor: "rgba(255,255,255,0.7)" }}>
                     <div className="shrink-0">
                         <h2 className="text-base font-bold" style={{ color: "hsl(24 15% 18%)" }}>Aktivitas terbaru</h2>
@@ -161,7 +161,7 @@ export default function DashboardPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-3 flex-1 min-h-0">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-3 flex-1 md:min-h-0">
                         {/* Transaksi Terakhir — dark card (2/5) */}
                         <div className="md:col-span-2 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden group"
                             style={{ backgroundColor: "hsl(20 18% 15%)", boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}>
