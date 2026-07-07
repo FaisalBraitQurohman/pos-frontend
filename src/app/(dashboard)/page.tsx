@@ -180,8 +180,8 @@ export default function DashboardPage() {
                                             {latestTx.paymentMethod} • {new Date(latestTx.createdAt).toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" })}
                                         </p>
                                         {/* Items */}
-                                        <div className="mt-3 space-y-1.5">
-                                            {latestTx.items.slice(0, 4).map(item => (
+                                        <div className="mt-3 space-y-1.5 overflow-y-auto max-h-[120px] custom-scrollbar pr-1">
+                                            {latestTx.items.map(item => (
                                                 <div key={item.id} className="flex items-center justify-between">
                                                     <span className="text-[11px] text-white/70 truncate pr-2">{item.product.name} x{item.quantity}</span>
                                                     <span className="text-[11px] text-white/90 font-medium whitespace-nowrap">
@@ -203,7 +203,7 @@ export default function DashboardPage() {
                                 <TrendingUp className="h-3.5 w-3.5" style={{ color: "hsl(22 80% 42%)" }} />
                                 <span className="text-xs font-semibold" style={{ color: "hsl(24 15% 35%)" }}>Timeline transaksi</span>
                             </div>
-                            <div className="flex-1 overflow-y-auto space-y-2 pr-1 min-h-0 custom-scrollbar">
+                            <div className="flex-1 overflow-y-auto space-y-2 pr-1 min-h-0 max-h-[200px] custom-scrollbar">
                                 {stats?.recentActivity && stats.recentActivity.length > 0 ? (
                                     stats.recentActivity.map(tx => (
                                         <div key={tx.id}
