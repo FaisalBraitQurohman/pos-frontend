@@ -260,7 +260,7 @@ export default function DashboardPage() {
                                 Semua stok aman. Belum ada produk yang menyentuh batas minimum.
                             </div>
                         ) : (
-                            <div className="space-y-1.5 overflow-y-auto pr-0.5 flex-1 min-h-0 custom-scrollbar">
+                            <div className="space-y-1.5 overflow-y-auto pr-0.5 flex-1 min-h-0 max-h-[200px] custom-scrollbar">
                                 {stats!.lowStockProducts.map(p => (
                                     <div key={p.id} className="flex items-center gap-3 px-3 py-2 rounded-xl"
                                         style={{ backgroundColor: "hsl(36 33% 96%)", border: "1px solid hsl(36 20% 90%)" }}>
