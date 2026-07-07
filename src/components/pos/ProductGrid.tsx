@@ -193,17 +193,17 @@ export function ProductGrid({ onAddToCart, searchTerm = "" }: ProductGridProps) 
             {/* Product Table */}
             <div className="flex-1 overflow-y-auto min-h-0 mt-3 rounded-2xl border custom-scrollbar backdrop-blur-2xl shadow-xl"
                 style={{ backgroundColor: "hsla(36, 33%, 97%, 0.75)", borderColor: "rgba(255,255,255,0.5)" }}>
-                <table className="w-full">
+                <table className="w-full table-fixed">
                     <thead className="sticky top-0 z-10"
                         style={{ backgroundColor: "hsla(36, 33%, 96%, 0.9)", borderBottom: "1px solid rgba(0,0,0,0.05)" }}>
                         <tr>
-                            <th className="text-left text-[11px] font-semibold uppercase tracking-wider px-4 py-2.5"
+                            <th className="text-left text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider pl-3 pr-1 sm:px-4 py-2.5"
                                 style={{ color: "hsl(24 10% 50%)" }}>Produk</th>
-                            <th className="text-right text-[11px] font-semibold uppercase tracking-wider px-4 py-2.5"
+                            <th className="text-right text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider px-1 sm:px-4 py-2.5 w-[75px] sm:w-24"
                                 style={{ color: "hsl(24 10% 50%)" }}>Harga</th>
-                            <th className="text-center text-[11px] font-semibold uppercase tracking-wider px-4 py-2.5 w-20"
+                            <th className="text-center text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider px-1 sm:px-4 py-2.5 w-[50px] sm:w-20"
                                 style={{ color: "hsl(24 10% 50%)" }}>Stok</th>
-                            <th className="w-12"></th>
+                            <th className="w-9 sm:w-12 pr-2 sm:pr-4"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -235,38 +235,38 @@ export function ProductGrid({ onAddToCart, searchTerm = "" }: ProductGridProps) 
                                         (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
                                     }}
                                 >
-                                    <td className="px-4 py-3">
-                                        <div className="flex items-center gap-3">
+                                    <td className="pl-3 pr-1 sm:px-4 py-2.5 sm:py-3 overflow-hidden">
+                                        <div className="flex items-center gap-2 sm:gap-3">
                                             {product.imageUrl ? (
-                                                <div className="h-9 w-9 rounded-lg overflow-hidden shrink-0"
+                                                <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg overflow-hidden shrink-0"
                                                     style={{ backgroundColor: "hsl(36 30% 92%)" }}>
                                                     <img src={resolveImageUrl(product.imageUrl)} alt={product.name} className="h-full w-full object-cover" />
                                                 </div>
                                             ) : (
-                                                <div className="h-9 w-9 rounded-lg flex items-center justify-center shrink-0"
+                                                <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg flex items-center justify-center shrink-0"
                                                     style={{ backgroundColor: "hsl(36 30% 92%)" }}>
-                                                    <Package className="h-4 w-4" style={{ color: "hsl(36 20% 68%)" }} />
+                                                    <Package className="h-4 w-4 sm:h-4 sm:w-4" style={{ color: "hsl(36 20% 68%)" }} />
                                                 </div>
                                             )}
-                                            <div className="min-w-0">
-                                                <p className="text-sm font-bold truncate" style={{ color: "hsl(24 15% 20%)" }}>{
+                                            <div className="min-w-0 flex-1">
+                                                <p className="text-[13px] sm:text-sm font-bold truncate" style={{ color: "hsl(24 15% 20%)" }}>{
                                                     product.brand || product.name}</p>
                                                 {product.size && (
-                                                    <p className="text-xs truncate" style={{ color: "hsl(24 10% 50%)" }}>{product.size}</p>
+                                                    <p className="text-[11px] sm:text-xs truncate" style={{ color: "hsl(24 10% 50%)" }}>{product.size}</p>
                                                 )}
-                                                <p className="text-[10px] mt-0.5" style={{ color: "hsl(24 10% 60%)" }}>
+                                                <p className="text-[9px] sm:text-[10px] mt-0.5 truncate" style={{ color: "hsl(24 10% 60%)" }}>
                                                     {product.category || "General"}
                                                 </p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td className="px-4 py-2.5 text-right">
-                                        <span className="text-sm font-bold" style={{ color: "hsl(22 80% 38%)" }}>
+                                    <td className="px-1 sm:px-4 py-2.5 sm:py-3 text-right">
+                                        <span className="text-[11px] sm:text-sm font-bold" style={{ color: "hsl(22 80% 38%)" }}>
                                             Rp {Number(product.price).toLocaleString("id-ID")}
                                         </span>
                                     </td>
-                                    <td className="px-4 py-2.5 text-center">
-                                        <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{
+                                    <td className="px-1 sm:px-4 py-2.5 sm:py-3 text-center">
+                                        <span className="text-[9px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 rounded-full" style={{
                                             backgroundColor: product.stock <= 0
                                                 ? "hsl(36 20% 90%)"
                                                 : product.stock <= 5
@@ -281,7 +281,7 @@ export function ProductGrid({ onAddToCart, searchTerm = "" }: ProductGridProps) 
                                             {product.stock <= 0 ? "Habis" : product.stock}
                                         </span>
                                     </td>
-                                    <td className="px-3 py-2.5 text-center">
+                                    <td className="pr-2 sm:pr-4 pl-1 sm:pl-3 py-2.5 sm:py-3 text-center">
                                         <button
                                             disabled={product.stock <= 0}
                                             onClick={(e) => {
