@@ -154,7 +154,7 @@ export function AddProductDialog({ onProductAdded, prefillData }: AddProductDial
                     </Button>
                 )}
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[500px]">
+            <DialogContent className="w-[95vw] sm:max-w-[500px] max-h-[90vh] overflow-hidden flex flex-col p-4 sm:p-6 rounded-2xl">
                 <form onSubmit={handleSubmit}>
                     <DialogHeader>
                         <DialogTitle>{prefillData ? "Duplikat Produk (Varian Baru)" : "Add New Product"}</DialogTitle>

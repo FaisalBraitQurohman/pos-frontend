@@ -1,4 +1,5 @@
 import { Sidebar } from "@/components/Sidebar"
+import { BottomNav } from "@/components/BottomNav"
 
 export default function DashboardLayout({
     children,
@@ -7,15 +8,15 @@ export default function DashboardLayout({
 }) {
     return (
         <div
-            className="h-screen w-screen overflow-hidden flex gap-0"
+            className="h-[100dvh] w-screen overflow-hidden flex flex-col md:flex-row gap-0"
             style={{ backgroundColor: "hsl(36 40% 93%)" }}
         >
-            {/* Sidebar — sits flush on left */}
+            {/* Sidebar — hidden on mobile, visible on desktop */}
             <Sidebar />
 
             {/* Main content area */}
             <div
-                className="flex-1 flex flex-col overflow-hidden my-3 mr-3 rounded-2xl"
+                className="flex-1 flex flex-col overflow-hidden m-0 md:my-3 md:mr-3 rounded-none md:rounded-2xl pb-16 md:pb-0"
                 style={{
                     backgroundColor: "hsl(36 33% 96%)",
                     boxShadow: "0 2px 20px rgba(120,80,40,0.05)",
@@ -25,6 +26,9 @@ export default function DashboardLayout({
                     {children}
                 </main>
             </div>
+            
+            {/* Bottom Nav — visible on mobile, hidden on desktop */}
+            <BottomNav />
         </div>
     )
 }

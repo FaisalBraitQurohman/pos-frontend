@@ -61,8 +61,8 @@ export function StockHistoryTable() {
     }
 
     return (
-        <div>
-            <Table>
+        <div className="overflow-x-auto custom-scrollbar">
+            <Table className="min-w-[700px]">
                 <TableHeader>
                     <TableRow>
                         <TableHead>Date</TableHead>

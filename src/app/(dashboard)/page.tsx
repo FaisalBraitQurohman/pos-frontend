@@ -81,7 +81,7 @@ export default function DashboardPage() {
         <div className="flex flex-col h-full p-5 gap-4">
 
             {/* ── 4 Stat Cards ── */}
-            <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 shrink-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 shrink-0">
 
                 {/* Omzet hari ini */}
                 <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-4 border hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(234,88,12,0.15)] transition-all duration-300 flex flex-col gap-2 relative overflow-hidden group"

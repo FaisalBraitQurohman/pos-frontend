@@ -68,7 +68,7 @@ export function Sidebar() {
     return (
         <aside
             className={cn(
-                "h-full flex flex-col shrink-0 overflow-hidden backdrop-blur-3xl border-r border-white/40 shadow-xl relative z-20",
+                "hidden md:flex h-full flex-col shrink-0 overflow-hidden backdrop-blur-3xl border-r border-white/40 shadow-xl relative z-20",
                 "transition-[width] duration-300 ease-in-out"
             )}
             style={{

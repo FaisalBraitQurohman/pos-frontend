@@ -139,7 +139,7 @@ export default function POSInterface() {
     }
 
     return (
-        <div className="flex h-screen gap-4 p-5">
+        <div className="flex flex-col xl:flex-row h-full gap-4 p-3 sm:p-5">
             {/* Left: Product Area */}
             <div className="flex-1 flex flex-col gap-3 min-w-0">
                 {/* Search Bar */}
@@ -148,7 +148,7 @@ export default function POSInterface() {
                         style={{ color: "hsl(24 10% 55%)" }} />
                     <input
                         type="text"
-                        placeholder="Cari produk berdasarkan nama atau merk..."
+                        placeholder="Cari produk..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="w-full h-12 pl-11 pr-4 rounded-2xl text-sm font-medium outline-none border transition-all"
@@ -164,13 +164,13 @@ export default function POSInterface() {
                 </div>
 
                 {/* Product Grid */}
-                <div className="flex-1 overflow-hidden">
+                <div className="flex-1 overflow-hidden min-h-[400px]">
                     <ProductGrid onAddToCart={addToCart} searchTerm={searchTerm} />
                 </div>
             </div>
 
             {/* Right: Cart */}
-            <div className="w-[380px] shrink-0">
+            <div className="w-full xl:w-[380px] shrink-0 h-fit xl:h-full">
                 <Cart
                     items={cart}
                     onUpdateQuantity={updateQuantity}

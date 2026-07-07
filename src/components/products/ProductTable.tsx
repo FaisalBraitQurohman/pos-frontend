@@ -78,8 +78,8 @@ export function ProductTable() {
     return (
         <div className="h-full flex flex-col rounded-2xl border overflow-hidden"
             style={{ backgroundColor: "hsla(36, 33%, 97%, 0.75)", borderColor: "hsl(36 20% 88%)", boxShadow: "0 2px 12px rgba(120,80,40,0.06)" }}>
-            <div className="flex-1 min-h-0 overflow-y-auto custom-scrollbar">
-                <table className="w-full text-left">
+            <div className="flex-1 min-h-0 overflow-y-auto overflow-x-auto custom-scrollbar">
+                <table className="w-full min-w-[800px] text-left">
                     <thead className="sticky top-0 z-10"
                         style={{ backgroundColor: "hsl(36 33% 96%)", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
                         <tr>
