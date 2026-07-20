@@ -32,16 +32,10 @@ export function Sidebar() {
     const [collapsed, setCollapsed] = useState(false)
     const [brandHovered, setBrandHovered] = useState(false)
     const [user, setUser] = useState<{ name: string; email: string } | null>(null)
-    const [savedCount, setSavedCount] = useState(0)
-
     useEffect(() => {
         const stored = localStorage.getItem("pos-user")
         if (stored) {
             try { setUser(JSON.parse(stored)) } catch { /* ignore */ }
-        }
-        const saved = localStorage.getItem("pos-saved-transactions")
-        if (saved) {
-            try { setSavedCount(JSON.parse(saved).length) } catch { /* ignore */ }
         }
     }, [])
 
@@ -249,21 +243,7 @@ export function Sidebar() {
                     </div>
                 )}
 
-                {/* ── Transaksi Tersimpan Card ── */}
-                {!collapsed && (
-                    <div
-                        className="mt-2 rounded-2xl p-3 shrink-0"
-                        style={{ backgroundColor: "rgba(255,255,255,0.7)", border: "1px solid hsl(36 20% 86%)" }}
-                    >
-                        <p className="text-xs" style={{ color: "hsl(24 10% 52%)" }}>Transaksi tersimpan</p>
-                        <p className="text-3xl font-bold mt-1" style={{ color: "hsl(24 15% 18%)" }}>
-                            {savedCount}
-                        </p>
-                        <p className="text-[11px] mt-1 leading-snug" style={{ color: "hsl(24 10% 55%)" }}>
-                            Data frontend sekarang sudah tersambung ke API route handlers dan backend Postgres.
-                        </p>
-                    </div>
-                )}
+
 
             </div>
         </aside>
