@@ -55,13 +55,14 @@ export function EOQCalculator() {
     }
 
     const calculate = () => {
-        const D = parseFloat(demand)
+        const D_monthly = parseFloat(demand)
         const hargaBeli = parseFloat(costPrice)
 
-        if (D > 0 && hargaBeli > 0) {
-            const H = HOLDING_PERCENTAGE * hargaBeli
-            const eoq = Math.sqrt((2 * D * SETUP_COST) / H)
-            setResult({ eoq: Math.round(eoq), holdingCost: H })
+        if (D_monthly > 0 && hargaBeli > 0) {
+            const D_annual = D_monthly * 12
+            const H_annual = HOLDING_PERCENTAGE * hargaBeli
+            const eoq = Math.sqrt((2 * D_annual * SETUP_COST) / H_annual)
+            setResult({ eoq: Math.round(eoq), holdingCost: H_annual })
         } else {
             setResult(null)
         }
@@ -148,7 +149,7 @@ export function EOQCalculator() {
                         <Info className="h-5 w-5 shrink-0 mt-0.5" style={{ color: "hsl(22 80% 45%)" }} />
                         <div className="text-xs space-y-1" style={{ color: "hsl(24 15% 35%)" }}>
                             <p><strong style={{ color: "hsl(24 15% 20%)" }}>Biaya Pemesanan (S):</strong> Rp {SETUP_COST.toLocaleString("id-ID")} /pesanan</p>
-                            <p><strong style={{ color: "hsl(24 15% 20%)" }}>Biaya Simpan (H):</strong> {HOLDING_PERCENTAGE * 100}% dari harga beli /bulan</p>
+                            <p><strong style={{ color: "hsl(24 15% 20%)" }}>Biaya Simpan (H):</strong> {HOLDING_PERCENTAGE * 100}% dari harga beli /tahun</p>
                         </div>
                     </div>
 
@@ -190,7 +191,7 @@ export function EOQCalculator() {
                                 <p className="flex justify-between"><span style={{ color: "hsl(24 10% 55%)" }}>Harga Beli:</span> <strong style={{ color: "hsl(24 15% 20%)" }}>Rp {parseInt(costPrice || "0").toLocaleString("id-ID")}</strong></p>
                                 <hr className="my-1" style={{ borderColor: "hsl(36 20% 88%)" }} />
                                 <p className="flex justify-between"><span style={{ color: "hsl(24 10% 55%)" }}>Biaya Pesan (S):</span> <strong style={{ color: "hsl(24 15% 20%)" }}>Rp {SETUP_COST.toLocaleString("id-ID")}</strong></p>
-                                <p className="flex justify-between"><span style={{ color: "hsl(24 10% 55%)" }}>Biaya Simpan (H):</span> <strong style={{ color: "hsl(24 15% 20%)" }}>Rp {result.holdingCost.toLocaleString("id-ID")}/bln</strong></p>
+                                <p className="flex justify-between"><span style={{ color: "hsl(24 10% 55%)" }}>Biaya Simpan (H):</span> <strong style={{ color: "hsl(24 15% 20%)" }}>Rp {result.holdingCost.toLocaleString("id-ID")}/thn</strong></p>
                             </div>
                         </div>
                     ) : (
