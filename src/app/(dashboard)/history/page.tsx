@@ -170,8 +170,6 @@ export default function HistoryPage() {
                                                     Order #{transaction.id.slice(0, 8)}
                                                 </p>
                                                 <p className="text-xs" style={{ color: "hsl(24 10% 55%)" }}>
-                                                    {new Date(transaction.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                                    <span className="mx-1.5">•</span>
                                                     {transaction.paymentMethod}
                                                 </p>
                                             </div>

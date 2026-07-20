@@ -177,7 +177,7 @@ export default function DashboardPage() {
                                             Rp {Number(latestTx.totalAmount).toLocaleString("id-ID")}
                                         </p>
                                         <p className="text-[11px] text-orange-200/70 mt-1">
-                                            {latestTx.paymentMethod} • {new Date(latestTx.createdAt).toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" })}
+                                            {latestTx.paymentMethod}
                                         </p>
                                         {/* Items */}
                                         <div className="mt-3 space-y-1.5 overflow-y-auto max-h-[120px] custom-scrollbar pr-1">
@@ -214,7 +214,7 @@ export default function DashboardPage() {
                                                     Rp {Number(tx.totalAmount).toLocaleString("id-ID")}
                                                 </p>
                                                 <p className="text-[11px]" style={{ color: "hsl(24 10% 55%)" }}>
-                                                    {new Date(tx.createdAt).toLocaleDateString("id-ID", { day: "numeric", month: "short" })}, {new Date(tx.createdAt).toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" })}
+                                                    {new Date(tx.createdAt).toLocaleDateString("id-ID", { day: "numeric", month: "short" })}
                                                 </p>
                                             </div>
                                             <p className="text-[11px] mt-0.5" style={{ color: "hsl(24 10% 55%)" }}>
